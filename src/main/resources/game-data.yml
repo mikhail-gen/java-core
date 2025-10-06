@@ -1,0 +1,192 @@
+scene:
+  start:
+    identifier: 1
+    name: >
+      Пробуждение (Probuzhdenie)
+    description: >
+      Ты приходишь в себя на холодном песке у берега озера. Вокруг — туман, ночь, ни души. (Ty prihodish v sebya na kholodnom peske u berega ozera. Vokrug — tuman, noch, ni dushi.)
+      Телефон в кармане почти разряжен (1%). (Telefon v karmane pochti razryazhen (1%).)
+      В другом кармане — спичка и клочок бумаги с надписью: (V drugom karmane — spichka i klochok bumagi s nadpisyu:)
+      "Не доверяй голосам. Иди к северу." ("Ne doveryai golosam. Idi k severu.")
+    choice:
+      - identifier: 2A
+        description: >
+          Идти на восток (Idti na vostok)
+      - identifier: 2B
+        description: >
+          Идти на север (Idti na sever)
+      - identifier: 2C
+        description: >
+          Остаться у озера (Ostatsya u ozera)
+    ending: null
+
+  2A:
+    identifier: 2A
+    name: >
+      Восточный свет (Vostochnyi svet)
+    description: >
+      Ты идёшь на свет и находишь старую электростанцию. Внезапно загорается прожектор. (Ty idyosh na svet i nakhodish staruyu elektrostantsiyu. Vnezapno zagoraetsya prozhektor.)
+      Голос в громкоговорителе: «Стоять. Идентификация...» (Golos v gromkogovoritele: "Stoyat. Identifikatsiya...")
+      Ты ничего не понимаешь. (Ty nichego ne ponimayesh.)
+    choice:
+      - identifier: 3A
+        description: >
+          Крикнуть (Kriknut)
+      - identifier: 3B
+        description: >
+          Бежать (Bezhat)
+    ending: null
+
+  2B:
+    identifier: 2B
+    name: >
+      Северный путь (Severnyi put)
+    description: >
+      Ты следуешь на север и находишь заброшенную деревню. Дома пусты, но в одном — следы костра и дневник. (Ty sleduyesh na sever i nakhodish zabroshennuyu derevnyu. Doma pusty, no v odnom — sledy kostra i dnevnik.)
+      "Озеро просыпается в полнолуние. Не верь голосам. Прячься до рассвета." ("Ozero prosypaetsya v polnolunie. Ne ver golosam. Pryachsya do rassveta.")
+    choice:
+      - identifier: 3C
+        description: >
+          Ожидать (Ozhidat)
+      - identifier: 3D
+        description: >
+          Искать помощь (Iskat pomoshch)
+    ending: null
+
+  2C:
+    identifier: 2C
+    name: >
+      Ожидание у озера (Ozhidanie u ozera)
+    description: >
+      Ты остаёшься на месте. Из тумана слышишь детский голос: (Ty ostayoshsya na meste. Iz tumana slyshish detskiy golos:)
+      «Помоги мне… пожалуйста…» ("Pomogi mne... pozhaluysta...")
+      Тебя охватывает страх. (Tebya okhvatyvaet strakh.)
+    choice:
+      - identifier: 3E
+        description: >
+          Подойти к голосу (Podoyti k golosu)
+      - identifier: 3F
+        description: >
+          Бежать в лес (Bezhat v les)
+    ending: null
+
+  3A:
+    identifier: 3A
+    name: >
+      Попытка общения (Popytka obshcheniya)
+    description: >
+      Ты кричишь, но свет слепит тебя. Из темноты появляется фигура в противогазе. (Ty krichish, no svet slepit tebya. Iz temnoty poyavlyaetsya figura v protivogaze.)
+      Вас усыпляют. Очнулся ты уже в лаборатории. Ты стал частью эксперимента. (Vas usypljayut. Ochnulsya ty uzhe v laboratorii. Ty stal chastyu eksperimenta.)
+    choice: null
+    ending:
+      name: >
+        Неудача (Neudacha)
+      result: >
+        Стал частью эксперимента (Stal chastyu eksperimenta)
+
+  3B:
+    identifier: 3B
+    name: >
+      Побег (Pobeg)
+    description: >
+      Ты бежишь, но спотыкаешься. Прожектор гаснет. Что-то двигается в кустах. (Ty bezhish, no spotykayeshsya. Prozhektor gasnet. Chto-to dvigaetsya v kustakh.)
+      Ты исчез без следа. (Ty ischez bez sleda.)
+    choice: null
+    ending:
+      name: >
+        Неудача (Neudacha)
+      result: >
+        Исчезновение, смерть (Ischeznoveniye, smert)
+
+  3C:
+    identifier: 3C
+    name: >
+      Ожидание (Ozhidanie)
+    description: >
+      Ты сидишь у костра. Проходят часы. На рассвете из тумана выходит группа людей — выжившие. (Ty sidish u kostra. Prokhodyat chasy. Na rassvete iz tumana vykhodit gruppa lyudey — vyzhivshie.)
+      Они помогают тебе выбраться. (Oni pomogayut tebe vybratsya.)
+    choice: null
+    ending:
+      name: >
+        Победа (Pobeda)
+      result: >
+        Спасение, эвакуация (Spasenie, evakuatsiya)
+
+  3D:
+    identifier: 3D
+    name: >
+      Поиски (Poiski)
+    description: >
+      Ты блуждаешь в тумане и выходишь к маяку. Там — старая рация. Связь удаётся установить. (Ty bluzhdaesh v tumane i vykhodysh k mayaku. Tam — staraya ratsiya. Svyaz udaiotsya ustanovit.)
+      На следующий день — эвакуация. (Na sleduyushchiy den — evakuatsiya.)
+    choice: null
+    ending:
+      name: >
+        Победа (Pobeda)
+      result: >
+        Спасение, эвакуация (Spasenie, evakuatsiya)
+
+  3E:
+    identifier: 3E
+    name: >
+      Девочка (Devochka)
+    description: >
+      Ты идёшь на голос и видишь девочку в белом. Она улыбается и исчезает в воде. (Ty idyosh na golos i vidish devochku v belom. Ona ulybaetsya i ischezayet v vode.)
+      Вокруг тебя — тени. Ты не можешь двигаться. (Vokrug tebya — teni. Ty ne mozhesh dvigatsya.)
+    choice: null
+    ending:
+      name: >
+        Проклятие озера (Proklyatie ozera)
+      result: >
+        Попал под влияние озера (Popal pod vliyaniye ozera)
+
+  3F:
+    identifier: 3F
+    name: >
+      Побег в лес (Pobeg v les)
+    description: >
+      Ты бежишь прочь. Натыкаешься на подземный люк. Внутри — бункер. Там — доказательства эксперимента: (Ty bezhish proch. Natykaeshsya na podzemnyy lyuk. Vnutri — bunker. Tam — dokazatelstva eksperimenta:)
+      мониторы, карты, журналы. (monitory, karty, zhurnaly.)
+    choice:
+      - identifier: 4A
+        description: >
+          Уничтожить всё (Unichtozhit vsyo)
+      - identifier: 4B
+        description: >
+          Присоединиться к проекту (Prisoyedinitsya k proektu)
+    ending: null
+
+  4A:
+    identifier: 4A
+    name: >
+      Разрушение (Razrusheniye)
+    description: >
+      Ты активируешь самоуничтожение. Озеро начинает светиться. Тьма уходит. Ты спас мир… но погиб.
+      (Ty aktiviruyesh' samounichtozhenie. Ozero nachinayet svetitsya. T'ma ukhodit. Ty spas mir… no pogib.)
+    choice: null
+    ending:
+      name: >
+        Герой (Geroi)
+      result: >
+        Спас мир, но погиб (Spas mir, no pogib)
+
+  4B:
+    identifier: 4B
+    name: >
+      Присоединение (Prisoyedinenie)
+    description: >
+      Ты входишь в проект. Тебе дают новое имя. Ты становишься частью того, что раньше преследовало тебя.
+      (Ty vkhodish' v proekt. Tebe dayut novoye imya. Ty stanovish'sya chast'yu togo, chto ran'she presledovalo tebya.)
+    choice: null
+    ending:
+      name: >
+        Тайный участник (Taynyi uchastnik)
+      result: >
+        Стал частью эксперимента (Stal chast'yu eksperimenta)
+
+  end:
+    identifier: -1
+    name: null
+    description: null
+    choice: null
+    ending: null
