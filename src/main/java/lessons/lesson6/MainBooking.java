@@ -1,28 +1,33 @@
 package lessons.lesson6;
 
-import static lessons.lesson6.fileutils.YmlHandler.*;
+import static lessons.lesson6.utils.YmlHandler.*;
 
+import lessons.lesson6.models.Flight;
 import lessons.lesson6.models.Seat;
 import lessons.lesson6.models.SeatBookingMap;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
+
+import static lessons.lesson6.utils.DateTimeUtils.*;
 
 public class MainBooking {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        SeatBookingMap seatBookingMap = readFromYmlFile();
+        Flight flight = readFromYmlFile();
+        System.out.println("Flight " + flight.getFlightID() + " date and time: " + flight.getFlightDateTime());
 
         while (true) {
-            printMenu();
+            printFlightBookingMenu();
             String input = scanner.nextLine().trim();
 
             switch (input) {
-                case "1" -> showAllBookings(seatBookingMap);
-                case "2" -> addBooking(seatBookingMap);
-                case "3" -> eraseBooking(seatBookingMap);
+                case "1" -> showAllBookings(flight);
+                case "2" -> addBooking(flight);
+                case "3" -> eraseBooking(flight);
                 case "4" -> {
-                    writeToYmlFile(seatBookingMap);
+                    writeToYmlFile(flight);
                     System.out.println("Data saved. Exiting program.");
                     return;
                 }
@@ -31,7 +36,7 @@ public class MainBooking {
         }
     }
 
-    private static void printMenu() {
+    private static void printFlightBookingMenu() {
         System.out.println("""
                             
             === Seat Booking System ===
@@ -46,6 +51,9 @@ public class MainBooking {
     private static void showAllBookings(SeatBookingMap seatBookingMap) {
         System.out.println("\nCurrent seats and bookings:\n");
         for (Seat seat : seatBookingMap.getSeats().values()) {
+            if (seat.checkBookingExpiration()) {
+                seat.stopBooking();
+            }
             System.out.println(seat);
         }
     }
@@ -68,8 +76,7 @@ public class MainBooking {
         System.out.print("Enter full name of the person booking: ");
         String name = scanner.nextLine().trim();
 
-        seat.setBookingStatus(true);
-        seat.setBookingPersonFullName(name);
+        seat.provideBooking(formatDateTimeToString(LocalDateTime.now()), name, true);
         System.out.println("Booking added successfully.");
     }
 

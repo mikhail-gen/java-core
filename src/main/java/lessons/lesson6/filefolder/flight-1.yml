@@ -1,0 +1,15 @@
+flightDateTime: 01 December 2025, 10:15
+flightID: '1'
+seats:
+  A1:
+    bookingDateTime: 10 October 2025, 15:46:00
+    bookingPersonFullName: Dan
+    bookingStatus: true
+    seatClass: ECONOMY
+    seatNumber: A1
+  B2:
+    bookingDateTime: 01 October 2025, 10:15:00
+    bookingPersonFullName: John
+    bookingStatus: true
+    seatClass: BUSINESS
+    seatNumber: B2
