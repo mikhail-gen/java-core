@@ -56,7 +56,6 @@ public class PubSubApp {
     }
 
     @AllArgsConstructor
-    // Input task
     static class InputTask implements Runnable {
         private final int id;
 
