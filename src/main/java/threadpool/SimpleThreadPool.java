@@ -36,14 +36,13 @@ public class SimpleThreadPool {
 
         Thread worker = new Thread(() -> {
             try {
-                while (!isShutdown) {
+                while (!isShutdown || !poolQueue.isEmpty()) {
                     Runnable task = poolQueue.take();
                     try {
                         task.run();
                     } catch (Exception e) {
                         System.out.println("Task failed: " + e.getMessage());
                     }
-                    break;
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
